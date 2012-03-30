@@ -7,6 +7,9 @@ CFLAGS := -Wall -g -std=c++0x
 main: ${OBJ}
 	${CC} ${CFLAGS} -o $@ ${LIBS} ${OBJ}
 
+archive: ${OBJ}
+	tar -c archive.tar ${SRC} MAKEFILE
+
 #generate dependancy files at the same time as object compilation
 %.o : %.cpp
 	${CC} ${CXX_FLAGS} -MD -o $@ -c $< 
